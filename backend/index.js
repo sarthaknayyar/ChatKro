@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const port = 3000;
 const {connectDB} = require('./connection');
 const userRouter = require('./routes/user');
-const { checkLoggedin } = require('../../blog/backend/middlewares/auth');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const messageRouter = require('./routes/message');
