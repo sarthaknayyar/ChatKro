@@ -19,7 +19,8 @@ function Login() {
         });
         if(response.status === 200){
             const data = await response.json();
-            console.log(data +"hello  ");
+            console.log("xyz")
+            console.log("hell "+ data);
             navigate('/');
         }
         else if(response.status === 404){
