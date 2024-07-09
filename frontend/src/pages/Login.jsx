@@ -20,7 +20,7 @@ function Login() {
         if(response.status === 200){
             const data = await response.json();
             console.log("xyz")
-            console.log("hell "+ data);
+            console.log(data);
             navigate('/');
         }
         else if(response.status === 404){
