@@ -18,7 +18,7 @@ function Profile() {
     }
 
     useEffect(()=>{
-        fetch(`http://localhost:3000/user/username/${username}`).then((res)=>res.json())
+        fetch(`https://chatkro-3.onrender.com/user/username/${username}`).then((res)=>res.json())
         .then((user)=>{
             setUser(user);
             console.log(user);

@@ -8,7 +8,7 @@ function SignUp() {
         const username = document.getElementById('username').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        const response = await fetch('http://localhost:3000/user/signup',{
+        const response = await fetch('https://chatkro-3.onrender.com/user/signup',{
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json',

@@ -12,7 +12,7 @@ function ChatPage() {
 
   function sendMessage() {
     const content = document.getElementById('content').value;
-    fetch('http://localhost:3000/message/sendChat', {
+    fetch('https://chatkro-3.onrender.com/message/sendChat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ function ChatPage() {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3000/user/username/${senderName}`)
+    fetch(`https://chatkro-3.onrender.com/user/username/${senderName}`)
       .then((res) => res.json())
       .then((sender) => {
         setSenderObj(sender);
@@ -43,7 +43,7 @@ function ChatPage() {
         console.log(err);
       })
       .then(() => {
-        fetch(`http://localhost:3000/user/username/${receiverName}`)
+        fetch(`https://chatkro-3.onrender.com/user/username/${receiverName}`)
           .then((res) => res.json())
           .then((receiver) => {
             setReceiverObj(receiver);
@@ -54,7 +54,7 @@ function ChatPage() {
           });
       })
       .then(() => {
-        fetch(`http://localhost:3000/message/chat/${receiverName}/${senderName}`)
+        fetch(`https://chatkro-3.onrender.com/message/chat/${receiverName}/${senderName}`)
           .then((res) => res.json())
           .then((messages) => {
             setMessages(messages.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)));

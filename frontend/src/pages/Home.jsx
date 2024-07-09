@@ -14,7 +14,7 @@ function Home() {
         const token = getCookie('token');
         // console.log("hi" +token);
         if(token){
-             fetch(`http://localhost:3000/user/token/${token}`).then((res)=>res.json())
+             fetch(`https://chatkro-3.onrender.com/user/token/${token}`).then((res)=>res.json())
             .then((user)=>{
                 setUser(user);
                 // user.username = user.username.charAt(0).toUpperCase() + user.username.slice(1);
@@ -23,7 +23,7 @@ function Home() {
                 console.log(error);
             })
             .then(()=>{
-              fetch('http://localhost:3000/user/allusers/contact').then((res)=>res.json()).then((users)=>{
+              fetch('https://chatkro-3.onrender.com/user/allusers/contact').then((res)=>res.json()).then((users)=>{
                 setUsers(users);
                 
                 console.log(users);
