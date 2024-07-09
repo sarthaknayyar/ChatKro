@@ -8,13 +8,13 @@ const userRouter = require('./routes/user');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const messageRouter = require('./routes/message');
-connectDB("mongodb://localhost:27017/chatKro");
 
 dotenv.config();
 
 const mongoURI = process.env.MONGO_URI;
+connectDB(mongoURI);
 
-app.use(cookieParser(mongoURI));
+app.use(cookieParser());
 app.use(cors({
     origin: "http://localhost:5173",
     credentials: true
