@@ -4,28 +4,33 @@ import { useNavigate } from 'react-router';
 
 function SignUp() {
     const navigate = useNavigate();
-    async function signup(){
-        const username = document.getElementById('username').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const response = await fetch('https://chatkro-3.onrender.com/user/signup',{
-            method : 'POST',
-            headers : {
-                'Content-Type' : 'application/json',
-            },
-            body : JSON.stringify({username,email,password}),
-        }).then((res)=>res.json())
-        .then((data)=>{
-            console.log("hi");
-            console.log(data);
-        }).catch((err)=>{
-            console.log(err);
-        })
-
-        if(response.status === 200){
-            navigate('/login');
-        }
-    }
+    async function signup() {
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+  
+      try {
+          const response = await fetch('https://chatkro-3.onrender.com/user/signup', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ username, email, password }),
+          });
+  
+          const data = await response.json();
+          
+          if (response.status === 200) {
+              console.log("User signed up successfully:", data);
+              navigate('/login'); // Ensure navigate function is correctly defined and imported
+          } else {
+              console.log("Error:", data);
+          }
+      } catch (error) {
+          console.log("Fetch error:", error);
+      }
+  }
+  
 
   return (
     <div className='p-2 m-2'>

@@ -17,7 +17,8 @@ connectDB(MONGO_URI);
 app.use(cookieParser());
 app.use(cors({
     origin: ["http://localhost:5173", "https://admirable-quokka-c4bf0c.netlify.app"], // Add your frontend domain here
-    credentials: true
+    credentials: true,
+    optionsSuccessStatus: 200
 }));
 
 app.use(express.json());

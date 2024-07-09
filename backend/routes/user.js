@@ -31,7 +31,13 @@ router.post('/login', async (req, res)=>{
         return res.json({message: "Invalid Password"});
     }
     const token =  setUser(user);
-    res.cookie("token", token);
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true, // Only send cookie over HTTPS in production
+        sameSite: 'None', // Must be 'None' to allow cross-origin cookies
+        maxAge: 24 * 60 * 60 * 1000 // Cookie expiry (optional, here set to 1 day)
+    });
+    
     return res.status(200).json({token});
 })
 

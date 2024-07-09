@@ -12,7 +12,7 @@ function Home() {
 
     useEffect( ()=>{
         const token = getCookie('token');
-        // console.log("hi" +token);
+        console.log("hi " +token);
         if(token){
              fetch(`https://chatkro-3.onrender.com/user/token/${token}`).then((res)=>res.json())
             .then((user)=>{
