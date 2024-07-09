@@ -33,9 +33,12 @@ router.post('/login', async (req, res)=>{
     const token =  setUser(user);
     res.cookie("token", token, {
         httpOnly: true,
-        secure: true, // Only send cookie over HTTPS in production
-        sameSite: 'None', // Must be 'None' to allow cross-origin cookies
-        maxAge: 24 * 60 * 60 * 1000 // Cookie expiry (optional, here set to 1 day)
+        secure: true, // Ensure it's true in production
+        sameSite: 'None', // Allow cross-site cookies
+        maxAge: 24 * 60 * 60 * 1000, // Cookie expiry (optional, here set to 1 day
+        path: '/', // Adjust the path as needed
+        domain: 'yourdomain.com', // Set your domain
+        partitioned: true // If required by browser policies
     });
     
     return res.status(200).json({token});
