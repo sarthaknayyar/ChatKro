@@ -11,8 +11,8 @@ const messageRouter = require('./routes/message');
 
 dotenv.config();
 
-const mongoURI = process.env.MONGO_URI;
-connectDB(mongoURI);
+const MONGO_URI = process.env.MONGO_URI;
+connectDB(MONGO_URI);
 
 app.use(cookieParser());
 app.use(cors({
