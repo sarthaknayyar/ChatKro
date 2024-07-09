@@ -21,6 +21,8 @@ function Login() {
             const data = await response.json();
             console.log("xyz")
             console.log(data);
+            const token = data.token;
+            document.cookie = `token=${token}; Secure; SameSite=None; Domain=sweet-dango-ca4344.netlify.app;`;
             navigate('/');
         }
         else if(response.status === 404){
